@@ -67,21 +67,43 @@
             <div class="align">
                 
                     
-                        <label for="Fy">Steel Grade</label>
-                        <input type="number"  value="500" name="fy" placeholder="Mpa">
+                        <label for="fy">Steel Grade</label>
+                        <input type="number"  value="{{ fy | default(500) }}" name="fy" placeholder="Mpa">
                         <br>
                         <br>
 
-                        <label for="Fck">Concret grade</label>
-                        <input type="number" name="fck" value=30 >
+                        <label for="fck">Concret grade</label>
+                        <input type="number" value="{{ fck | default(30) }}" name="fck">
                         <br>
                         <br>
+            </div>
 
-                
-           
+            <div>
+                <label for="Reinforcement">Reinforcment bottom</label>
+                <input type="number" value="{{dia_bot_width | default(10)}}" name="dia_bottom_width">
+                @
+                <input type="number" value="{{spacing_bottom_width | default(150)}}" name="spacing_bottom_width">
+                <br>
+                <br>
+                <input style="margin-left: 170px;" type="number" value="{{dia_bottom_length | default(10)}}" name="dia_bottom_length">
+                @
+                <input type="number" value="{{spacing_bottom_length | default(150)}}" name="spacing_bottom_length">
+                <br>
+                <br>
+                <label for="Reinforcement">Reinforcment Top</label>
+                <input type="number" value="{% if dia_top_width is defined %}{{ dia_top_width }}{% elif thickness is defined and thickness >= 100 %}10{% endif %}" name="dia_top_width">
+
+
+                @
+                <input type="number" value="150" name="spacing_top_width">
+                <br>
+                <br>
+                <input style="margin-left: 170px;" type="number" value="10" name="dia_top_length">
+                @
+                <input type="number" value="150" name="spacing_top_length">
+                <br>
             </div>
         </div> 
-
         <button style="margin-left: 55%;" type="submit">
             Calculate
         </button>
