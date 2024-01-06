@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nutek Concrete pvt ltd</title>
+    <link rel="stylesheet" href="../static/styles.css">
+
+
+    <script>
+        function submitform()
+        {
+            var form = document.getElementById('inputs');
+        
+        // Submit the form
+        form.submit();
+
+        return false;  
+        }
+    </script>
+
+   
+
+</head>
+<body >
+
+    <div class="border" >
+ 
+     <h1 class="heading">Slab design </h1>
+
+    <form id="inputs" action="/calculate" method="post" onsubmit="return submitform()">
+        <div style="display: flex;">
+            <div class="align">
+               
+                    <div>
+                        <label for="width">Width</label>
+                        <input type="number" value="{{ width | default(500) }}" name="width" placeholder="mm">
+                        <br>
+                        <br>
+                        <label for="length">Length</label>
+                        <input type="number" value="{{ length | default(1000) }}" name="length" placeholder="mm">
+                        <br>
+                        <br>
+                        <label for="thk">Thickness</label>
+                        <input type="number"  value="{{ Thickness | default(100) }}" name="thk" placeholder="mm">
+                        <br>
+                        <br>
+                        <label for="load">Load</label>
+                        <input type="number"  value="{{ load | default(5) }}" name="load" >
+                        
+                        <br>
+                        <br>
+                        <label for="CC">Clear Cover</label>
+                        <input type="number" name="CC" value="{{ CC | default(20) }}">
+                        <br>
+                        <br>
+                        <label for="CC">Bearing</label>
+                        <input type="number" name="Bearing" value="{{ Bearing | default(75) }}" >
+                        <br>
+                        <br>
+                        <label for="FOS">FOS</label>
+                        <input type="number" name="FOS" value="{{ FOS | default(1.1) }}">  
+                    </div>
+                    
+                    <br>
+            </div>
+            <div class="align">
+                
+                    
+                        <label for="Fy">Steel Grade</label>
+                        <input type="number"  value="500" name="fy" placeholder="Mpa">
+                        <br>
+                        <br>
+
+                        <label for="Fck">Concret grade</label>
+                        <input type="number" name="fck" value=30 >
+                        <br>
+                        <br>
+
+                
+           
+            </div>
+        </div> 
+
+        <button style="margin-left: 55%;" type="submit">
+            Calculate
+        </button>
+    </form>
+        
+        <br><br>
+
+
+
+    </div>
+
+    <br>
+   
+
+    <textarea id="outputtext" class="output" >{{ result }} </textarea>
+    
+    <footer>
+        <p>©Sujit hegde. All rights reserved. 2024</p>
+       </footer>
+</body>
+</html>

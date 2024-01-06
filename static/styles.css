@@ -1,0 +1,42 @@
+.heading
+{
+    color: gold;
+    font-family: Arial, Helvetica, sans-serif;
+    font-style: italic;
+    margin-left: 35%;
+    text-decoration: underline;
+}
+
+
+.align , label
+{
+color: blue;
+margin-left: 30px;
+}
+input[type="number"]
+{
+    border-radius: 10px;
+
+}
+.output
+{
+width: 250px;
+height: 100px;
+margin-left: 250px;
+border-radius: 10px;
+background-color:azure
+
+}
+.border
+{
+    border-style: double;
+    border-radius: 50px;
+    border-color:rgb(30, 184, 211);
+    margin-left: 25px;
+    margin-right: 25px;
+}
+
+body
+{
+background-color:beige;
+}
