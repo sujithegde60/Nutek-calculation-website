@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Nutek Concrete pvt ltd</title>
+    <title>One way slab deisgn</title>
     <link rel="stylesheet" href="../static/styles.css">
     <script src="../static/script.js" defer> </script>
 
@@ -20,33 +20,33 @@
                
                     <div>
                         <label for="width">Width</label>
-                        <input type="number" value="{{ width | default(500) }}" name="width" id="width" placeholder="mm">
+                        <input type="number" value="500" name="width" id="width" placeholder="mm">
                         <br>
                         <br>
                         <label for="length">Length</label>
-                        <input type="number" id="length" value="{{ length | default(1000) }}" name="length" placeholder="mm">
+                        <input type="number" id="length" value="1000" name="length" placeholder="mm">
                         <br>
                         <br>
                         <label for="thk">Thickness</label>
-                        <input type="number" id="thk"  value="{{ Thickness | default(100) }}" name="thk" placeholder="mm">
+                        <input type="number" id="thk"  value="100" name="thk" placeholder="mm">
                         <div id="momentTooltip" style="display: none;"></div>
                         <br>
                         <br>
                         <label for="load">Load</label>
-                        <input type="number"  value="{{ load | default(5) }}" name="load" id="load">
+                        <input type="number"  value="5" name="load" id="load">
                         
                         <br>
                         <br>
                         <label for="CC">Clear Cover</label>
-                        <input type="number" id="CC" name="CC" value="{{ CC | default(20) }}">
+                        <input type="number" id="CC" name="CC" value="20">
                         <br>
                         <br>
                         <label for="CC">Bearing</label>
-                        <input type="number" id="bearing" name="Bearing" value="{{ Bearing | default(75) }}" >
+                        <input type="number" id="bearing" name="Bearing" value="75" >
                         <br>
                         <br>
                         <label for="FOS">FOS</label>
-                        <input type="number" name="FOS" id="FOS" value="{{ FOS | default(1.1) }}">  
+                        <input type="number" name="FOS" id="FOS" value="1.1">  
                     </div>
                     
                     <br>
@@ -86,7 +86,7 @@
                     <option value="20" >20</option>
                   </select>
                 @
-                <input type="number" value="{{spacing_bottom_width | default(150)}}" id="spacing_bottom_width" name="spacing_bottom_width" class="spacing" oninput="calc_steel()">
+                <input type="number" value="150" id="spacing_bottom_width" name="spacing_bottom_width" class="spacing" oninput="calc_steel()" min="0">
                 <br>
                 <br>
                 <select id="dia_bottom_length" name="dia_bottom_length"  style="margin-left: 170px;">
@@ -98,7 +98,7 @@
                   </select>
 
                 @
-                <input type="number" value="{{spacing_bottom_length | default(150)}}" id="spacing_bottom_length" name="spacing_bottom_length" class="spacing">
+                <input type="number" value="150" id="spacing_bottom_length" name="spacing_bottom_length" class="spacing" oninput="calc_steel()" min="0">
                 <br>
                 <br>
                 <label for="Reinforcement">Reinforcment Top</label>
@@ -111,7 +111,7 @@
                     <option value="20" >20</option>
                   </select>
                 @
-                <input type="number" value="150" name="spacing_top_width" id="spacing_top_width" class="spacing">
+                <input type="number" value="150" name="spacing_top_width" id="spacing_top_width" class="spacing" oninput="calc_steel()" min="0">
                 <br>
                 <br>
                 <select id="dia_top_length" name="dia_top_length"  style="margin-left: 170px;">
@@ -124,7 +124,7 @@
                   </select>
 
                 @
-                <input type="number" value="150" name="spacing_top_length" id="spacing_top_length" class="spacing">
+                <input type="number" value="150" name="spacing_top_length" id="spacing_top_length" class="spacing" oninput="calc_steel()" min="0">
                 <br>
             </div>
         </div> 
@@ -138,10 +138,9 @@
 
  <textarea id="outputtext" class="output" >{{ result }} </textarea>
 
+ <button style="width: 60px; height: 20px; margin-left: 50%;" onclick="clipboard()"> Copy </button>
     </div>
 
-    
-   
     
     <footer>
         <p>©Sujit hegde. All rights reserved. 2024</p>

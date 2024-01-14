@@ -133,11 +133,14 @@ document.addEventListener('DOMContentLoaded',function(){
 
                 if(thk>=100)
                 {
-                 document.getElementById("dia_top_width").value='8'
-                 document.getElementById("dia_top_length").value='8'
-
-                 document.getElementById("spacing_top_width").value=200
-                 document.getElementById("spacing_top_length").value=200
+                  if(document.getElementById("dia_top_width").value==0)
+                  {
+                    document.getElementById("dia_top_width").value='8'
+                    document.getElementById("dia_top_length").value='8'
+   
+                    document.getElementById("spacing_top_width").value=200
+                    document.getElementById("spacing_top_length").value=200
+                  }
                 }
                 else
                 {
@@ -268,11 +271,11 @@ document.addEventListener('DOMContentLoaded',function(){
             outputtext.textContent=width+"x"+length+"x"+thk+"\n"+"Volume "+volume+" m³"+"\n"+ "Weight "+(volume*2500)+" kg" +"\n"+
             "Load "+load+" Tonnes"+"\n\n" +
             "Bottom steel: "+"\n"+
-            "T"+bot_width_dia+" @ "+ bot_width_spac+" ("+bot_no_along_length+"#- "+width+" mm long)"+"\n"+
-            "T"+bot_length_dia+" @ "+ bot_length_spac+" ("+bot_no_along_width+"#- "+length+" mm long)"+"\n\n"+
+            "T"+bot_width_dia+" @ "+ bot_width_spac+" ("+bot_no_along_length+"#- "+width+" mm length)"+"\n"+
+            "T"+bot_length_dia+" @ "+ bot_length_spac+" ("+bot_no_along_width+"#- "+length+" mm length)"+"\n\n"+
             "Top steel: "+"\n"+
-            "T"+top_width_dia+" @ "+ top_width_spac+" ("+top_no_along_length+"#- "+width+" mm long)"+"\n"+
-            "T"+top_length_dia+" @ "+ top_length_spac+" ("+top_no_along_width+"#- "+length+" mm long)"+"\n\n"+
+            "T"+top_width_dia+" @ "+ top_width_spac+" ("+top_no_along_length+"#- "+width+" mm length)"+"\n"+
+            "T"+top_length_dia+" @ "+ top_length_spac+" ("+top_no_along_width+"#- "+length+" mm length)"+"\n\n"+
             "TMT Weight "+tot_tmt+" kg"+"\n"+
             "MS Flat "+msflat +" kg"
 
@@ -282,8 +285,8 @@ document.addEventListener('DOMContentLoaded',function(){
                 outputtext.textContent=width+"x"+length+"x"+thk+"\n"+"Volume "+volume+" m³"+"\n"+ "Weight "+(volume*2500)+" kg" +"\n"+
             "Load "+load+" Tonnes"+"\n\n"+
             "Bottom steel: "+"\n"+
-            "T"+bot_width_dia+" @ "+ bot_width_spac+" ("+bot_no_along_length+"#- "+width+" mm long)"+"\n"+
-            "T"+bot_length_dia+" @ "+ bot_length_spac+" ("+bot_no_along_width+"#- "+length+" mm long)"+"\n\n"+
+            "T"+bot_width_dia+" @ "+ bot_width_spac+" ("+bot_no_along_length+"#- "+width+" mm length)"+"\n"+
+            "T"+bot_length_dia+" @ "+ bot_length_spac+" ("+bot_no_along_width+"#- "+length+" mm length)"+"\n\n"+
             "TMT Weight "+tot_tmt+" kg"+"\n"+
             "MS Flat "+msflat +" kg"
 
@@ -323,4 +326,18 @@ function show_info(msg)
         output_element.style.visibility = 'visible';
         output_element.textContent = msg; 
     }
+}
+function clipboard()
+{
+    var output_element = document.getElementById('outputtext');
+    var textToCopy = output_element.textContent;
+    var textarea = document.createElement('textarea');
+    textarea.value = textToCopy;
+    document.body.appendChild(textarea);
+    textarea.select();
+    document.execCommand('copy');
+    document.body.removeChild(textarea);
+
+
+
 }
