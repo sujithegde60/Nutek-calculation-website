@@ -26,10 +26,7 @@ def calculate():
         spacing_bot_width=float(request.form['spacing_bottom_width'])
         spacing_bot_length=float(request.form['spacing_bottom_length'])
 
-        dia_bot_width=int(request.form['dia_top_width'])
-        dia_bot_length=int(request.form['dia_top_length'])
-        spacing_bot_width=float(request.form['spacing_top_width'])
-        spacing_bot_length=float(request.form['spacing_top_length'])
+        
     except ValueError:
         return "Error"
 

@@ -18,10 +18,16 @@ input[type="number"],select
     border-radius: 10px;
     width: 100px;
 }
+
+.spacing
+{background-color: chocolate;
+
+}
+
 .output
 {
-width: 250px;
-height: 100px;
+width: 400px;
+height: 250px;
 margin-left: 250px;
 border-radius: 10px;
 background-color:azure
@@ -47,4 +53,14 @@ background-color:beige;
     font-size: medium;
     display: block;
     height: 20px;
+}
+#output_info
+{
+    color:green;
+    margin-left: 20%;
+    font-size: medium;
+    display: block;
+    height: 20px; 
+    border-width: 2px;
+    border-color: blue;
 }
