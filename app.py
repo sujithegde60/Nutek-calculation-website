@@ -31,7 +31,7 @@ def calculate():
         spacing_bot_width=float(request.form['spacing_top_width'])
         spacing_bot_length=float(request.form['spacing_top_length'])
     except ValueError:
-        print("error")
+        return "Error"
 
     volume=(width*length*thickness)/10**9
     weight=volume*2500
