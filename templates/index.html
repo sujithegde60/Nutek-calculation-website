@@ -1,149 +1,186 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>One way slab deisgn</title>
-    <link rel="stylesheet" href="../static/styles.css">
-    <script src="../static/script.js" defer> </script>
+    <link rel="stylesheet" href="../static/styles.css" />
+    <script src="../static/script.js" defer></script>
+  </head>
+  <body>
+    <div class="border">
+      <h1 class="heading">Slab design</h1>
 
-</head>
-<body >
-
-    <div class="border" >
- 
-     <h1 class="heading">Slab design </h1>
-
-    <form id="inputs" >
-        <div style="display: flex;">
-            <div class="align">
-               
-                    <div>
-                        <label for="width">Width</label>
-                        <input type="number" value="500" name="width" id="width" placeholder="mm">
-                        <br>
-                        <br>
-                        <label for="length">Length</label>
-                        <input type="number" id="length" value="1000" name="length" placeholder="mm">
-                        <br>
-                        <br>
-                        <label for="thk">Thickness</label>
-                        <input type="number" id="thk"  value="100" name="thk" placeholder="mm">
-                        <div id="momentTooltip" style="display: none;"></div>
-                        <br>
-                        <br>
-                        <label for="load">Load</label>
-                        <input type="number"  value="5" name="load" id="load">
-                        
-                        <br>
-                        <br>
-                        <label for="CC">Clear Cover</label>
-                        <input type="number" id="CC" name="CC" value="20">
-                        <br>
-                        <br>
-                        <label for="CC">Bearing</label>
-                        <input type="number" id="bearing" name="Bearing" value="75" >
-                        <br>
-                        <br>
-                        <label for="FOS">FOS</label>
-                        <input type="number" name="FOS" id="FOS" value="1.1">  
-                    </div>
-                    
-                    <br>
-            </div>
-            <div class="align">
-                
-                    
-                        <label for="fy">Steel Grade</label>
-                        <select id="fy" name="fy">
-                            <option value="250">250 Mpa</option>
-                            <option value="415">415 Mpa</option>
-                            <option value="500" selected>500 Mpa</option>
-                            <option value="550">550 Mpa</option> 
-                        </select>
-                        <br>
-                        <br>
-
-                        <label for="fck">Concret grade</label>
-                        <select id="fck" name="fck">
-                            <option value="20">20</option>
-                            <option value="25">25</option>
-                            <option value="30" selected>30</option>
-                            <option value="35">35</option>
-                            <option value="40">40</option>
-                        </select>
-                        <br>
-                        <br>
-            </div>
-
+      <form id="inputs">
+        <div style="display: flex">
+          <div class="align">
             <div>
-                <label for="Reinforcement">Reinforcment bottom</label>
-                <select id="dia_bottom_width" name="dia_bottom_width" >
-                    <option value="8" >8</option>
-                    <option value="10" selected>10</option>
-                    <option value="12" >12</option>
-                    <option value="16" >16</option>
-                    <option value="20" >20</option>
-                  </select>
-                @
-                <input type="number" value="150" id="spacing_bottom_width" name="spacing_bottom_width" class="spacing" oninput="calc_steel()" min="0">
-                <br>
-                <br>
-                <select id="dia_bottom_length" name="dia_bottom_length"  style="margin-left: 170px;">
-                    <option value="8" selected>8</option>
-                    <option value="10" >10</option>
-                    <option value="12" >12</option>
-                    <option value="16" >16</option>
-                    <option value="20" >20</option>
-                  </select>
+              <label for="width">Width</label>
+              <input type="number" name="width" id="width" placeholder="mm" />
+              <br />
+              <br />
+              <label for="length">Length</label>
+              <input type="number" id="length" name="length" placeholder="mm" />
+              <br />
+              <br />
+              <label for="thk">Thickness</label>
+              <input type="number" id="thk" name="thk" placeholder="mm" />
+              <div id="momentTooltip" style="display: none"></div>
+              <br />
+              <br />
+              <label for="load">Load</label>
+              <input type="number" name="load" id="load" />
 
-                @
-                <input type="number" value="150" id="spacing_bottom_length" name="spacing_bottom_length" class="spacing" oninput="calc_steel()" min="0">
-                <br>
-                <br>
-                <label for="Reinforcement">Reinforcment Top</label>
-                <select id="dia_top_width" name="dia_top_width" >
-                    <option value="0" >none</option>
-                    <option value="8" selected >8</option>
-                    <option value="10">10</option>
-                    <option value="12" >12</option>
-                    <option value="16" >16</option>
-                    <option value="20" >20</option>
-                  </select>
-                @
-                <input type="number" value="150" name="spacing_top_width" id="spacing_top_width" class="spacing" oninput="calc_steel()" min="0">
-                <br>
-                <br>
-                <select id="dia_top_length" name="dia_top_length"  style="margin-left: 170px;">
-                    <option value="0" >none</option>
-                    <option value="8" selected>8</option>
-                    <option value="10">10</option>
-                    <option value="12" >12</option>
-                    <option value="16" >16</option>
-                    <option value="20" >20</option>
-                  </select>
-
-                @
-                <input type="number" value="150" name="spacing_top_length" id="spacing_top_length" class="spacing" oninput="calc_steel()" min="0">
-                <br>
+              <br />
+              <br />
+              <label for="CC">Clear Cover</label>
+              <input type="number" id="CC" name="CC" value="20" />
+              <br />
+              <br />
+              <label for="CC">Bearing</label>
+              <input type="number" id="bearing" name="Bearing" value="75" />
+              <br />
+              <br />
+              <label for="FOS">FOS</label>
+              <input type="number" name="FOS" id="FOS" value="1.1" />
             </div>
-        </div> 
-       
-    </form>
-        
-    <div>    
+
+            <br />
+          </div>
+          <div class="align">
+            <label for="fy">Steel Grade</label>
+            <select id="fy" name="fy">
+              <option value="250">250 Mpa</option>
+              <option value="415">415 Mpa</option>
+              <option value="500" selected>500 Mpa</option>
+              <option value="550">550 Mpa</option>
+            </select>
+            <br />
+            <br />
+
+            <label for="fck">Concret grade</label>
+            <select id="fck" name="fck">
+              <option value="20">20</option>
+              <option value="25">25</option>
+              <option value="30" selected>30</option>
+              <option value="35">35</option>
+              <option value="40">40</option>
+            </select>
+            <br />
+            <br />
+          </div>
+
+          <div>
+            <label for="Reinforcement">Reinforcment bottom</label>
+            <select id="dia_bottom_width" name="dia_bottom_width">
+              <option value="8">8</option>
+              <option value="10" selected>10</option>
+              <option value="12">12</option>
+              <option value="16">16</option>
+              <option value="20">20</option>
+            </select>
+            @
+            <input
+              type="number"
+              value="150"
+              id="spacing_bottom_width"
+              name="spacing_bottom_width"
+              class="spacing"
+              oninput="calc_steel()"
+              min="0"
+            />
+            <br />
+            <br />
+            <select
+              id="dia_bottom_length"
+              name="dia_bottom_length"
+              style="margin-left: 170px"
+            >
+              <option value="8" selected>8</option>
+              <option value="10">10</option>
+              <option value="12">12</option>
+              <option value="16">16</option>
+              <option value="20">20</option>
+            </select>
+
+            @
+            <input
+              type="number"
+              value="150"
+              id="spacing_bottom_length"
+              name="spacing_bottom_length"
+              class="spacing"
+              oninput="calc_steel()"
+              min="0"
+            />
+            <br />
+            <br />
+            <label for="Reinforcement">Reinforcment Top</label>
+            <select id="dia_top_width" name="dia_top_width">
+              <option value="0">none</option>
+              <option value="8" selected>8</option>
+              <option value="10">10</option>
+              <option value="12">12</option>
+              <option value="16">16</option>
+              <option value="20">20</option>
+            </select>
+            @
+            <input
+              type="number"
+              value="150"
+              name="spacing_top_width"
+              id="spacing_top_width"
+              class="spacing"
+              oninput="calc_steel()"
+              min="0"
+            />
+            <br />
+            <br />
+            <select
+              id="dia_top_length"
+              name="dia_top_length"
+              style="margin-left: 170px"
+            >
+              <option value="0">none</option>
+              <option value="8" selected>8</option>
+              <option value="10">10</option>
+              <option value="12">12</option>
+              <option value="16">16</option>
+              <option value="20">20</option>
+            </select>
+
+            @
+            <input
+              type="number"
+              value="150"
+              name="spacing_top_length"
+              id="spacing_top_length"
+              class="spacing"
+              oninput="calc_steel()"
+              min="0"
+            />
+            <br />
+          </div>
+        </div>
+      </form>
+
+      <div>
         <h3 id="warning"></h3>
         <h3 id="output_info"></h3>
+      </div>
+
+      <textarea id="outputtext" class="output">{{ result }} </textarea>
+
+      <button
+        style="width: 60px; height: 20px; margin-left: 50%"
+        onclick="clipboard()"
+      >
+        Copy
+      </button>
     </div>
 
- <textarea id="outputtext" class="output" >{{ result }} </textarea>
-
- <button style="width: 60px; height: 20px; margin-left: 50%;" onclick="clipboard()"> Copy </button>
-    </div>
-
-    
     <footer>
-        <p>©Sujit hegde. All rights reserved. 2024</p>
-       </footer>
-</body>
+      <p>©Sujit hegde. All rights reserved. 2024</p>
+    </footer>
+  </body>
 </html>
